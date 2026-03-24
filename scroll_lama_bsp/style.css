@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  line-height: 1.4;
+  background: #fafafa;
+}
+
+main {
+  width: min(640px, 92%);
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+h1 {
+  margin: 0 0 1rem;
+}
+
+.step {
+  min-height: 70vh;
+  margin: 0 0 1rem;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  font-size: 1.4rem;
+}
+
+.circle {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #5aa9e6;
+  transform: scale(0.7);
+  opacity: 0.7;
+  transition: transform 450ms ease, opacity 450ms ease, background-color 450ms ease;
+}
+
+.step.is-active {
+  background: #e8f4ff;
+  border-color: #8ec5ff;
+}
+
+/*
+KREISANIMATION
+*/
+.step.is-active .circle {
+  transform: scale(2);
+  opacity: 1;
+  background: #0f7ac9;
+}
