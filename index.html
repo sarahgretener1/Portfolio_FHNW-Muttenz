@@ -31,7 +31,6 @@
             <img class="img6" src="img/big/0275_Atrium_MvdB_gross.jpg" alt="FHNW Logo"> 
             <img class="img7" src="img/big/0275_Labor_HLS_AH_gross.jpg" alt="FHNW Logo">
             <img class="img8" src="img/PlaeneIcon/big/0275_Schnittperspektive_gross.jpg" alt="FHNW Logo">  
-            <img class="mindmap notransform" src="img/mindmap.png" alt="FHNW Logo">
             <div class="background"></div>
             <img class="img9" src="img/PlaeneIcon/big/0275_Ansicht_gross.png" alt="FHNW Logo">
                         <div class="plans-panel">
@@ -63,8 +62,9 @@
     const overlayGrid = document.querySelector('.overlay-grid');
     const plansCurrent = document.querySelector('#plans-current');
     const plansThumbs = document.querySelectorAll('.plans-thumb');
+    const isMobileViewport = window.matchMedia('(max-width: 480px)').matches;
 
-    if (overlayGrid) {
+    if (overlayGrid && !isMobileViewport) {
         const autoScrollDelayMs = 900;
         const autoScrollDurationMs = 1900;
         const autoScrollViewportFactor = 0.98;

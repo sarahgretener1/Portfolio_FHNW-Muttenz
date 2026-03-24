@@ -458,30 +458,19 @@ ul li a.active {
   }
 
   .overlay-grid {
-    grid-template-columns: repeat(2,90vw);
+    grid-template-columns: 5vw 90vw 5vw;
     grid-template-rows: repeat(8, 1fr);
     grid-auto-rows: auto;        
     grid-auto-columns: auto;  
     top: 15rem;
     overflow-x: hidden;
     overflow-y: scroll;
-    padding: 1rem;
+    overscroll-behavior-x: none;
+    touch-action: pan-y;
+    row-gap: 1rem;
+    column-gap: 0;
   }
 
-  .plans-panel {
-    transform: translate(10rem, 3rem);
-  }
-
-  .plans-current {
-    max-width: 20px;
-    max-height: 20rem;
-    padding-right: 1rem;
-  }
-
-  .plans-thumb {
-    width: 3rem;
-    height: calc((100% - 1.75rem) / 8);
-  }
 
   .fhnw {
   grid-column: 1/4;
@@ -528,6 +517,10 @@ ul li a.active {
 
   body {
     padding-bottom: 4rem;
+  }
+
+  footer {
+    padding-top: 2rem;
   }
 
   .img1 {
