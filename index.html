@@ -51,75 +51,22 @@
     <footer>
         <div class="footer">
             <h3 class="footer-text">Get in touch:</h3>
-            <button>Kontakt</button>
-            <button>Impressum</button>
-            <button>Datenschutzerklärung</button>
+            <div class="footer-item">
+                <button type="button" class="footer-btn" aria-expanded="false">Kontakt</button>
+                <p class="footer-info">Mail: campus.muttenz@fhnw.ch<br>Telefon: +41 61 000 00 00</p>
+            </div>
+            <div class="footer-item">
+                <button type="button" class="footer-btn" aria-expanded="false">Impressum & Rechtliches</button>
+                <p class="footer-info">                   Diese Website entstand im Rahmen des Moduls KiWeb an der HSLU. Die verwendeten Inhalte (Texte, Pläne, Bilder, Fotografien) wurden von pool Architekten (Zürich) bereitgestellt.
+Alle Urheber- und Nutzungsrechte verbleiben bei den jeweiligen Rechteinhaber:innen, insbesondere beim Architekturbüro und den beteiligten Fotograf:innen.
+Die Nutzung ist ausschliesslich auf dieses Lehrprojekt beschränkt; Weiterverwendung, Veröffentlichung oder Vervielfältigung sind nicht gestattet.
+Die Website dient nur Studienzwecken und ist keine offizielle Publikation.</p>
+            </div>
             
         </div>
-        
     </footer>
-<script>
-    const overlayGrid = document.querySelector('.overlay-grid');
-    const plansCurrent = document.querySelector('#plans-current');
-    const plansThumbs = document.querySelectorAll('.plans-thumb');
-    const isMobileViewport = window.matchMedia('(max-width: 480px)').matches;
 
-    if (overlayGrid && !isMobileViewport) {
-        const autoScrollDelayMs = 900;
-        const autoScrollDurationMs = 1900;
-        const autoScrollViewportFactor = 0.98;
-
-        overlayGrid.scrollLeft = 0;
-
-        const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
-
-        const animateScrollLeft = (element, targetLeft, durationMs) => {
-            const startLeft = element.scrollLeft;
-            const distance = targetLeft - startLeft;
-            const startTime = performance.now();
-
-            const step = (now) => {
-                const elapsed = now - startTime;
-                const progress = Math.min(elapsed / durationMs, 1);
-                const easedProgress = easeOutCubic(progress);
-
-                element.scrollLeft = startLeft + distance * easedProgress;
-
-                if (progress < 1) {
-                    requestAnimationFrame(step);
-                }
-            };
-
-            requestAnimationFrame(step);
-        };
-
-        window.setTimeout(() => {
-            const maxScrollLeft = overlayGrid.scrollWidth - overlayGrid.clientWidth;
-            const targetScrollLeft = Math.min(maxScrollLeft, window.innerWidth * autoScrollViewportFactor);
-
-            animateScrollLeft(overlayGrid, targetScrollLeft, autoScrollDurationMs);
-        }, autoScrollDelayMs);
-
-        window.addEventListener('wheel', (event) => {
-            const isUpperHalf = event.clientY <= window.innerHeight / 2;
-
-            if (isUpperHalf) {
-                event.preventDefault();
-                overlayGrid.scrollLeft += event.deltaY + event.deltaX;
-            }
-        }, { passive: false });
-    }
-
-    if (plansCurrent && plansThumbs.length) {
-        plansThumbs.forEach((thumb) => {
-            thumb.addEventListener('click', () => {
-                plansCurrent.src = thumb.dataset.src || thumb.src;
-
-                plansThumbs.forEach((item) => item.classList.remove('active'));
-                thumb.classList.add('active');
-            });
-        });
-    }
-</script>
+    <script src="https://unpkg.com/scrollama"></script>
+    <script src="script.js"></script>
 </body>
 </html>
