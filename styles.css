@@ -292,20 +292,56 @@ ul li a.active {
 
 .img-wrapper {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
 }
 
 .img-text {
-  position: absolute;
-  opacity: 0;
-  color: #333;
-  font-weight: 700;
-  text-align: center;
-  pointer-events: none;
-  left: 0;
-  transform: translateX(-100%);
+  display: none;
+}
+
+.img1-wrapper {
+  grid-column: 5/6;
+  grid-row: 1/2;
+}
+
+.img2-wrapper {
+  grid-column: 6/7;
+  grid-row: 3/4;
+}
+
+.img3-wrapper {
+  grid-column: 7/8;
+  grid-row: 1/2;
+}
+
+.img4-wrapper {
+  grid-column: 8/9;
+  grid-row: 3/4;
+}
+
+.img5-wrapper {
+  grid-column: 9/10;
+  grid-row: 1/2;
+}
+
+.img6-wrapper {
+  grid-column: 10/11;
+  grid-row: 3/4;
+}
+
+.img7-wrapper {
+  grid-column: 11/12;
+  grid-row: 1/2;
+}
+
+.img8-wrapper {
+  grid-column: 12/13;
+  grid-row: 3/4;
+}
+
+.img9-wrapper {
+  grid-column: 13/14;
+  grid-row: 1/2;
 }
 
 .overlay-grid img {
@@ -544,6 +580,7 @@ ul li a.active {
   }
 
   .img-text {
+    display: block;
     position: absolute;
     left: 1rem;
     top: 50%;
