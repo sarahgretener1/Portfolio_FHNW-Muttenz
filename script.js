@@ -1,11 +1,16 @@
+const MOBILE_QUERY = '(max-width: 480px)';
+const isMobileViewport = window.matchMedia(MOBILE_QUERY).matches;
+
 const overlayGrid = document.querySelector('.overlay-grid');
 const plansCurrent = document.querySelector('#plans-current');
 const plansThumbs = document.querySelectorAll('.plans-thumb');
 const footerItems = document.querySelectorAll('.footer-item');
-const isMobileViewport = window.matchMedia('(max-width: 480px)').matches;
 
-// Desktop scrolling behavior
-if (overlayGrid && !isMobileViewport) {
+function initDesktopScroll() {
+    if (!overlayGrid || isMobileViewport) {
+        return;
+    }
+
     const autoScrollDelayMs = 900;
     const autoScrollDurationMs = 1900;
     const autoScrollViewportFactor = 0.98;
@@ -22,9 +27,8 @@ if (overlayGrid && !isMobileViewport) {
         const step = (now) => {
             const elapsed = now - startTime;
             const progress = Math.min(elapsed / durationMs, 1);
-            const easedProgress = easeOutCubic(progress);
 
-            element.scrollLeft = startLeft + distance * easedProgress;
+            element.scrollLeft = startLeft + distance * easeOutCubic(progress);
 
             if (progress < 1) {
                 requestAnimationFrame(step);
@@ -43,44 +47,50 @@ if (overlayGrid && !isMobileViewport) {
 
     window.addEventListener('wheel', (event) => {
         const isUpperHalf = event.clientY <= window.innerHeight / 2;
-
-        if (isUpperHalf) {
-            event.preventDefault();
-            overlayGrid.scrollLeft += event.deltaY + event.deltaX;
+        if (!isUpperHalf) {
+            return;
         }
+
+        event.preventDefault();
+        overlayGrid.scrollLeft += event.deltaY + event.deltaX;
     }, { passive: false });
 }
 
-// Mobile scroll animation with Scrollama
-if (isMobileViewport) {
+function initMobileScroll() {
+    if (!isMobileViewport || typeof scrollama !== 'function') {
+        return;
+    }
+
     const imgWrappers = document.querySelectorAll('.img-wrapper');
+    if (!imgWrappers.length) {
+        return;
+    }
+
     const scroller = scrollama();
 
-    function handleStepEnter(response) {
-        imgWrappers.forEach((wrapper) => {
-            wrapper.classList.remove('is-active');
+    scroller
+        .setup({
+            step: '.img-wrapper',
+            offset: 0.5
+        })
+        .onStepEnter((response) => {
+            imgWrappers.forEach((wrapper) => wrapper.classList.remove('is-active'));
+            response.element.classList.add('is-active');
+        })
+        .onStepExit((response) => {
+            response.element.classList.remove('is-active');
         });
-        response.element.classList.add('is-active');
-    }
-
-    function handleStepExit(response) {
-        response.element.classList.remove('is-active');
-    }
-
-    scroller.setup({
-        step: '.img-wrapper',
-        offset: 0.5
-    });
-
-    scroller.onStepEnter(handleStepEnter);
-    scroller.onStepExit(handleStepExit);
 
     window.addEventListener('resize', () => {
         scroller.resize();
     });
 }
 
-if (plansCurrent && plansThumbs.length) {
+function initPlansPanel() {
+    if (!plansCurrent || !plansThumbs.length) {
+        return;
+    }
+
     plansThumbs.forEach((thumb) => {
         thumb.addEventListener('click', () => {
             plansCurrent.src = thumb.dataset.src || thumb.src;
@@ -91,10 +101,13 @@ if (plansCurrent && plansThumbs.length) {
     });
 }
 
-if (footerItems.length) {
+function initFooterToggles() {
+    if (!footerItems.length) {
+        return;
+    }
+
     footerItems.forEach((item) => {
         const button = item.querySelector('.footer-btn');
-
         if (!button) {
             return;
         }
@@ -104,18 +117,26 @@ if (footerItems.length) {
 
             footerItems.forEach((otherItem) => {
                 otherItem.classList.remove('is-open');
+
                 const otherButton = otherItem.querySelector('.footer-btn');
                 if (otherButton) {
                     otherButton.setAttribute('aria-expanded', 'false');
                 }
             });
 
-            if (shouldOpen) {
-                item.classList.add('is-open');
-                button.setAttribute('aria-expanded', 'true');
+            if (!shouldOpen) {
+                return;
             }
+
+            item.classList.add('is-open');
+            button.setAttribute('aria-expanded', 'true');
         });
     });
 }
+
+initDesktopScroll();
+initMobileScroll();
+initPlansPanel();
+initFooterToggles();
 
 

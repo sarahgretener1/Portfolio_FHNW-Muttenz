@@ -2,27 +2,26 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FHNW - Campus Muttenz</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-      <nav> 
-             <ul>
+        <nav>
+            <ul>
                 <li><a class="active" href="#home">Home</a></li>
                 <li><a href="#news">Projects</a></li>
                 <li><a href="#about">About Us</a></li>
             </ul>
             <img id="logo" src="img/pool.png" alt="">
         </nav>
-   
     </header>
-        <main>
-            <div class="base-grid">
-                <h1 class="fhnw">FHNW</h1>
-            </div>
-          <div class="overlay-grid" aria-hidden="true">
+    <main>
+        <div class="base-grid">
+            <h1 class="fhnw">FHNW</h1>
+        </div>
+        <div class="overlay-grid" aria-hidden="true">
             <img class="img1" src="img/big/0275_Lichthof_Treppe_AH_gross.jpg" alt="FHNW Logo"> 
             <img class="img2" src="img/small/0275_OG12_Lounge_MN_klein.jpg" alt="FHNW Logo">
             <img class="img3" src="img/small/0275_aussen_Eingang_MvdB_klein.jpg" alt="FHNW Logo">
@@ -34,19 +33,19 @@
             <img class="mindmap notransform" src="img/mindmap.png" alt="FHNW Logo">
             <div class="background"></div>
             <img class="img9" src="img/PlaeneIcon/big/0275_Ansicht_gross.png" alt="FHNW Logo">
-                        <div class="plans-panel">
-                            <img id="plans-current" class="plans-current" src="img/PlaeneIcon/formatiert/0275_Schnitt01_klein.png" alt="Aktueller Plan">
-                            <div class="plans-thumbs">
-                                <img class="plans-thumb active" src="img/PlaeneIcon/formatiert/0275_Schnitt01_klein.png" alt="Plan 1" data-src="img/PlaeneIcon/formatiert/0275_Schnitt01_klein.png">
-                                <img class="plans-thumb" src="img/PlaeneIcon/formatiert/0275_Schnitt02_klein.png" alt="Plan 2" data-src="img/PlaeneIcon/formatiert/0275_Schnitt02_klein.png">
-                                <img class="plans-thumb" src="img/PlaeneIcon/formatiert/0275_Schnitt03_klein.png" alt="Plan 3" data-src="img/PlaeneIcon/formatiert/0275_Schnitt03_klein.png">
-                                <img class="plans-thumb" src="img/PlaeneIcon/formatiert/0275_2OG_Hoersaal_klein.png" alt="Plan 5" data-src="img/PlaeneIcon/formatiert/0275_2OG_Hoersaal_klein.png">
-                                <img class="plans-thumb" src="img/PlaeneIcon/formatiert/0275_5OG_HLS_klein.png" alt="Plan 6" data-src="img/PlaeneIcon/formatiert/0275_5OG_HLS_klein.png">
-                                <img class="plans-thumb" src="img/PlaeneIcon/formatiert/0275_Ansicht_klein.png" alt="Plan 7" data-src="img/PlaeneIcon/formatiert/0275_Ansicht_klein.png">
-                                <img class="plans-thumb" src="img/PlaeneIcon/formatiert/0275_Schnittperspektive_klein.png" alt="Plan 8" data-src="img/PlaeneIcon/formatiert/0275_Schnittperspektive_klein.png">
-                            </div>
-                        </div>
-          </div>
+            <div class="plans-panel">
+                <img id="plans-current" class="plans-current" src="img/PlaeneIcon/formatiert/0275_Schnitt01_klein.png" alt="Aktueller Plan">
+                <div class="plans-thumbs">
+                    <img class="plans-thumb active" src="img/PlaeneIcon/formatiert/0275_Schnitt01_klein.png" alt="Plan 1" data-src="img/PlaeneIcon/formatiert/0275_Schnitt01_klein.png">
+                    <img class="plans-thumb" src="img/PlaeneIcon/formatiert/0275_Schnitt02_klein.png" alt="Plan 2" data-src="img/PlaeneIcon/formatiert/0275_Schnitt02_klein.png">
+                    <img class="plans-thumb" src="img/PlaeneIcon/formatiert/0275_Schnitt03_klein.png" alt="Plan 3" data-src="img/PlaeneIcon/formatiert/0275_Schnitt03_klein.png">
+                    <img class="plans-thumb" src="img/PlaeneIcon/formatiert/0275_2OG_Hoersaal_klein.png" alt="Plan 5" data-src="img/PlaeneIcon/formatiert/0275_2OG_Hoersaal_klein.png">
+                    <img class="plans-thumb" src="img/PlaeneIcon/formatiert/0275_5OG_HLS_klein.png" alt="Plan 6" data-src="img/PlaeneIcon/formatiert/0275_5OG_HLS_klein.png">
+                    <img class="plans-thumb" src="img/PlaeneIcon/formatiert/0275_Ansicht_klein.png" alt="Plan 7" data-src="img/PlaeneIcon/formatiert/0275_Ansicht_klein.png">
+                    <img class="plans-thumb" src="img/PlaeneIcon/formatiert/0275_Schnittperspektive_klein.png" alt="Plan 8" data-src="img/PlaeneIcon/formatiert/0275_Schnittperspektive_klein.png">
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -55,11 +54,9 @@
             <button>Kontakt</button>
             <button>Impressum</button>
             <button>Datenschutzerklärung</button>
-            
         </div>
-        
     </footer>
-<script>
+    <script>
     const overlayGrid = document.querySelector('.overlay-grid');
     const plansCurrent = document.querySelector('#plans-current');
     const plansThumbs = document.querySelectorAll('.plans-thumb');
@@ -120,6 +117,6 @@
             });
         });
     }
-</script>
+    </script>
 </body>
 </html>

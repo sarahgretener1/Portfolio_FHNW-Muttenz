@@ -1,11 +1,11 @@
 @font-face {
 font-family: Unibody;
-src: url("font/Unibody_8_Regular.ttf") format("truetype");
+src: url("../fonts/Unibody 8 Regular.ttf") format("truetype");
 }
 
 @font-face {
     font-family: HelveticaNeue;
-    src: url("font/HelveticaNeue.ttc") format("truetype");
+  src: url("../fonts/HelveticaNeue.ttc") format("truetype");
 }
 
 html{
@@ -113,10 +113,6 @@ ul {
   width: auto;
 }
 
-ul li {
-  float: none;
-}
-
 ul li a {
   display: block;
   background-color: #7E7D7D;
@@ -138,18 +134,11 @@ ul li a.active {
 }
 
 #logo {
-    width: 10rem;
-    height: auto;
+  width: 10rem;
+  height: auto;
   margin: 1rem 1rem 1rem 0;
   order: -1;
   padding-left: 1rem;
-}
-
-.content {
-  position: relative;
-  height: 100vh;
-  width: auto;
-  padding-top: 6rem;
 }
 
 .base-grid {
@@ -365,69 +354,6 @@ ul li a.active {
       rgba(255, 255, 255, 1) 100%
     );
     padding: 5rem 2rem 0 20rem;
-}
-
-.img10 {
-    grid-column: 16/17;
-    grid-row: 1/2;
-    width: 75%;
-    height: auto;
-    transform: translate(-6rem, 0);
-}
-.img11 {
-    grid-column: 16/17;
-    grid-row: 1/2;
-    width: 75%;
-    height: auto;
-    transform: translate(13rem, 0);
-} 
-
-.img12 {
-    grid-column: 16/17;
-    grid-row: 2/3;
-    width: 75%;
-    height: auto;
-    transform: translate(-6rem, 0);
-}
-
-.img13 {
-    grid-column: 16/17;
-    grid-row: 2/3;
-    width: 75%;
-    height: auto;
-    transform: translate(13rem, 0);
-}
-
-.img14 {
-    grid-column: 16/17;
-    grid-row: 3/4;
-    width: 75%;
-    height: auto;
-    transform: translate(-6rem, 0);
-}
-
-.img15 {
-    grid-column: 16/17;
-    grid-row: 3/4;
-    width: 75%;
-    height: auto;
-    transform: translate(13rem, 0);
-}
-
-.img16 {
-    grid-column: 16/17;
-    grid-row: 3/4;
-    width: 75%;
-    height: auto;
-    transform: translate(-5rem, 11rem);
-}
-
-.img17 {
-    grid-column: 16/17;
-    grid-row: 3/4;
-    width: 50%;
-    height: auto;
-    transform: translate(15rem, 12rem);
 }
 
 .background {
