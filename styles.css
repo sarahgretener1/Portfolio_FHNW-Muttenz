@@ -37,7 +37,7 @@ h1 {
 h2 {
   font-family: "HelveticaNeue", sans-serif;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 800;
   margin: 1rem;
 }
 
@@ -50,7 +50,7 @@ button {
   font-family: "HelveticaNeue", sans-serif;
   padding: 0.5rem;
   margin: 4px;
-  background-color: #9a9a9a;
+  background-color: #7E7D7D;
   color: white;
   border: none;
   cursor: pointer;
@@ -330,7 +330,7 @@ ul li a.active {
 }
 
 .text-content h2 {
-  margin-top: 0;
+  margin: 0 0 0.8rem 0;
   padding: 0;
   column-span: all;
 }
@@ -339,13 +339,13 @@ ul li a.active {
   font-family: "HelveticaNeue", sans-serif;
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #333;
+  color: #000000;
   margin: 0.8rem 0;
   text-align: left;
 }
 
 .text-content p:first-of-type {
-  margin-top: 1rem;
+  margin-top: 0;
 }
 
 .plans-panel {
@@ -390,10 +390,10 @@ ul li a.active {
 }
 
 .plans-thumb.active {
-  border-color: #d4d4d4;
+  border-color: #7E7D7D;
   border-width: 2px;
   border-radius: 3px;
-  background-color: #d4d4d4;
+  background-color: #7E7D7D;
 }
 
 .plans-panel img {
@@ -407,9 +407,10 @@ ul li a.active {
 }
 
 footer {
+  grid-row: 4/5;
+  grid-column: 1/17;
   display: flex;
   align-items: flex-end;
-  min-height: 10rem;
   background-color: #000000;
   color: white;
 }
@@ -486,6 +487,8 @@ footer {
 
   h1 {
     font-size: 9rem;
+    padding: 0rem;
+    margin: 0rem;
   }
 
   h3 {
@@ -495,7 +498,7 @@ footer {
   nav {
     position: fixed;
     top: auto;
-    bottom: 13rem;
+    bottom: 11rem;
     left: 50%;
     transform: translateX(-50%);
     width: auto;
@@ -516,12 +519,18 @@ footer {
   }
 
   nav ul li a {
-    padding: 0.35rem 0.55rem;
+    padding: 0.39rem 0.61rem;
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.65rem;
     line-height: 1;
     white-space: nowrap;
     word-break: keep-all;
+  }
+
+  .footer button {
+    padding: 0.39rem 0.61rem;
+    font-size: 1.65rem;
+    line-height: 1;
   }
 
   #logo {
@@ -531,6 +540,10 @@ footer {
   body {
     padding-bottom: 0;
   }
+
+  .base-grid {
+  top: 0rem;
+}
 
   .overlay-grid {
     grid-template-columns: 5vw 90vw 5vw;
@@ -555,8 +568,9 @@ footer {
     z-index: 40;
     text-align: center;
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
     background-color: #ffffff;
+    transform: translate(0, -7vh);
   }
 
   .img-wrapper {
@@ -586,7 +600,7 @@ footer {
     top: 50%;
     transform: translateY(-50%) translateX(-100%);
     opacity: 0;
-    color: #333;
+    color: #000000;
     font-weight: 500;
     font-size: 0.95rem;
     line-height: 1.25;
@@ -726,9 +740,6 @@ footer {
     transform: none;
   }
 
-  footer {
-    padding-top: 2rem;
-  }
 
   .footer {
     display: grid;
@@ -736,6 +747,7 @@ footer {
     grid-template-rows: auto auto;
     gap: 0.35rem;
     margin: 1rem;
+    background-color: black;
   }
 
   .footer-text {

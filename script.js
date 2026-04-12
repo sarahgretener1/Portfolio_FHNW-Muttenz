@@ -2,8 +2,6 @@ const MOBILE_QUERY = '(max-width: 480px)';
 const isMobileViewport = window.matchMedia(MOBILE_QUERY).matches;
 
 const overlayGrid = document.querySelector('.overlay-grid');
-const plansCurrent = document.querySelector('#plans-current');
-const plansThumbs = document.querySelectorAll('.plans-thumb');
 const footerItems = document.querySelectorAll('.footer-item');
 
 function initDesktopScroll() {
@@ -86,21 +84,6 @@ function initMobileScroll() {
     });
 }
 
-function initPlansPanel() {
-    if (!plansCurrent || !plansThumbs.length) {
-        return;
-    }
-
-    plansThumbs.forEach((thumb) => {
-        thumb.addEventListener('click', () => {
-            plansCurrent.src = thumb.dataset.src || thumb.src;
-
-            plansThumbs.forEach((item) => item.classList.remove('active'));
-            thumb.classList.add('active');
-        });
-    });
-}
-
 function initFooterToggles() {
     if (!footerItems.length) {
         return;
@@ -136,7 +119,6 @@ function initFooterToggles() {
 
 initDesktopScroll();
 initMobileScroll();
-initPlansPanel();
 initFooterToggles();
 
 
