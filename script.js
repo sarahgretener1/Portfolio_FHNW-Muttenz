@@ -44,13 +44,16 @@ function initDesktopScroll() {
     }, autoScrollDelayMs);
 
     window.addEventListener('wheel', (event) => {
-        const isUpperHalf = event.clientY <= window.innerHeight / 2;
-        if (!isUpperHalf) {
-            return;
-        }
+        // Check if mouse is in the upper half (overlay-grid area)
+        const overlayGridRect = overlayGrid.getBoundingClientRect();
+        const isInUpperHalf = event.clientY < window.innerHeight / 2 && event.clientY < overlayGridRect.bottom;
 
-        event.preventDefault();
-        overlayGrid.scrollLeft += event.deltaY + event.deltaX;
+        if (isInUpperHalf) {
+            // Upper half: horizontal scroll
+            event.preventDefault();
+            overlayGrid.scrollLeft += event.deltaY + event.deltaX;
+        }
+        // Lower half: allow normal vertical scrolling (don't preventDefault)
     }, { passive: false });
 }
 
@@ -117,8 +120,34 @@ function initFooterToggles() {
     });
 }
 
+function initPlansThumbnails() {
+    const plansCurrent = document.getElementById('plans-current');
+    const plansThumbs = document.querySelectorAll('.plans-thumb');
+
+    if (!plansCurrent || !plansThumbs.length) {
+        return;
+    }
+
+    plansThumbs.forEach((thumb) => {
+        thumb.addEventListener('click', () => {
+            const newSrc = thumb.getAttribute('data-src');
+            if (!newSrc) {
+                return;
+            }
+
+            // Update main image
+            plansCurrent.src = newSrc;
+
+            // Update active state
+            plansThumbs.forEach((t) => t.classList.remove('active'));
+            thumb.classList.add('active');
+        });
+    });
+}
+
 initDesktopScroll();
 initMobileScroll();
 initFooterToggles();
+initPlansThumbnails();
 
 
